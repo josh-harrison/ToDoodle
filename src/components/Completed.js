@@ -21,13 +21,8 @@ class Completed extends React.Component {
         this.state = { todos: [] };
     }
 
-    tempBuild() {
-        let t1 = new Model("Test 1", 1, true);
-        let t2 = new Model("Test 2", 2, true);
-        let all = [t1,t2];
-        this.setState({
-            todos : all
-        });
+    componentDidMount() {
+        this.tempBuild();
     }
 
     create(todo) {
@@ -44,8 +39,13 @@ class Completed extends React.Component {
         );
     }
 
-    componentDidMount() {
-        this.tempBuild();
+    tempBuild() {
+        let t1 = new Model("Test 1", 1, true);
+        let t2 = new Model("Test 2", 2, true);
+        let all = [t1,t2];
+        this.setState({
+            todos : all
+        });
     }
 
     render() {

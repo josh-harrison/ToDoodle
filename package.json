@@ -10,8 +10,11 @@
     "lint:watch": "npm run lint -- --watch",
     "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch",
-    "build": "webpack --config webpack.config.dev.js"
+    "build": "webpack --config webpack.config.dev.js",
+    "dev": "webpack-dev-server --config webpack.config.dev.js --open",
+    "serve": "node tools/srcServer.js"
   },
+  
   "author": "Josh Harrison",
   "license": "MIT",
   "dependencies": {
@@ -27,7 +30,9 @@
     "redux": "3.5.2",
     "redux-thunk": "2.0.1",
     "toastr": "2.1.2",
-    "material-ui": "^0.15.0"
+    "material-ui": "^0.15.0",
+    "body-parser": "^1.15.0"
+
   },
   "devDependencies": {
     "babel-cli": "6.8.0",
@@ -67,7 +72,8 @@
     "url-loader": "0.5.7",
     "webpack": "1.13.0",
     "webpack-dev-middleware": "1.6.1",
-    "webpack-hot-middleware": "2.10.0"
+    "webpack-hot-middleware": "2.10.0",
+    "webpack-dev-server": "^1.14.1"
   },
   "repository": {
     "type": "git",

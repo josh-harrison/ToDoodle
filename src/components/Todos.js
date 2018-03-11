@@ -19,6 +19,10 @@ class Todos extends React.Component {
         this.state = { todos: [] };
     }
 
+    componentDidMount() {
+        this.tempBuild();
+    }
+
     tempBuild() {
         let t1 = new ToDoData("Stop", 1, false);
         let t2 = new ToDoData("Drop", 2, false);
@@ -36,10 +40,6 @@ class Todos extends React.Component {
             label={todo.toDoText} 
             style={styles.checkbox} />   
         );
-    }
-
-    componentDidMount() {
-        this.tempBuild();
     }
 
     render() {
