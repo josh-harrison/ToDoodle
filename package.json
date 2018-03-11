@@ -13,7 +13,7 @@
     "build": "webpack --config webpack.config.dev.js"
   },
   "author": "Josh Harrison",
-  "license": "none",
+  "license": "MIT",
   "dependencies": {
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
@@ -23,9 +23,11 @@
     "react-redux": "4.4.5",
     "react-router": "2.4.0",
     "react-router-redux": "4.0.4",
+    "react-tap-event-plugin" : "^1.0.0",
     "redux": "3.5.2",
     "redux-thunk": "2.0.1",
-    "toastr": "2.1.2"
+    "toastr": "2.1.2",
+    "material-ui": "^0.15.0"
   },
   "devDependencies": {
     "babel-cli": "6.8.0",

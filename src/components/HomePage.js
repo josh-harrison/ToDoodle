@@ -1,5 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router';
+import TextField from 'material-ui/TextField';
+import Todos from './Todos';
+import Completed from './Completed';
 
 
 class HomePage extends React.Component {
@@ -7,8 +10,13 @@ class HomePage extends React.Component {
         return(
             <div className="jumbotron">
                 <h1>ToDoodle</h1>
-                <p>Getting started here</p>
-                <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
+                <TextField
+                    floatingLabelText="Enter ToDo"
+                />
+                <hr />
+                <Todos />
+                <hr />
+                <Completed />
             </div>
         );
     }
