@@ -4,6 +4,8 @@ import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 import ToDoData from './ToDoData';
 import TodosStore from './TodosStore';
+import _ from 'lodash';
+
 
 const styles = {
     block: {
@@ -22,17 +24,21 @@ class Todos extends React.Component {
 
     componentDidMount() {
         TodosStore.getAll().then((data) => {
-          console.log('get all', data);
           this.setState({
-            todos: data.todos
+            todos: this.filter(data.todos)
           });
         });
         
         TodosStore.subscribe((action) => {
+          if(action.actionType != 'add') return;
           this.setState({
-            todos: action.todos
+            todos: this.filter(action.todos)
           });
         });
+    }
+
+    filter(todos) {
+        return _.filter(todos, function(o) {return o.isComplete == false;});
     }
 
     create(todo) {

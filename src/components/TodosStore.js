@@ -2,7 +2,7 @@ import _ from 'lodash';
 import $ from 'jquery';
 import ToDoData from './ToDoData';
 
-const URL = 'http://localhost:3000/todos'
+const URL = 'http://localhost:3000/todos';
 
 function getAll() {
   return new Promise((resolve, reject) => {
@@ -48,7 +48,14 @@ function add(todo) {
 class TodosStore {
   
   constructor() {
-    this.idCount = 10; 
+    this.getAll().then((data) => {
+      if(data.todos.length > 0) {
+        let ids = _(data.todos).map('id').value();
+        this.idCount = Math.max.apply(Math, ids);
+      } else {
+        this.idCount = 10;
+      }
+    }); 
     this.subscribers = [];
   }
   

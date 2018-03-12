@@ -5,6 +5,8 @@ import ListItem from 'material-ui/List/ListItem';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui/svg-icons/action/delete';
 import Model from './ToDoData';
+import TodosStore from './TodosStore';
+import _ from 'lodash';
 
 const styles = {
     block: {
@@ -22,7 +24,21 @@ class Completed extends React.Component {
     }
 
     componentDidMount() {
-        this.tempBuild();
+        TodosStore.getAll().then((data) => {
+          this.setState({
+            todos: this.filter(data.todos)
+          });
+        });
+        
+        TodosStore.subscribe((action) => {
+          this.setState({
+            todos: this.filter(action.todos)
+          });
+        });
+    }
+
+    filter(todos) {
+        return _.filter(todos, function(o) {return o.isComplete == true;});
     }
 
     create(todo) {
@@ -37,15 +53,6 @@ class Completed extends React.Component {
                 />
             </ListItem>
         );
-    }
-
-    tempBuild() {
-        let t1 = new Model("Test 1", 1, true);
-        let t2 = new Model("Test 2", 2, true);
-        let all = [t1,t2];
-        this.setState({
-            todos : all
-        });
     }
 
     render() {
