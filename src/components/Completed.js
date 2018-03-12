@@ -50,6 +50,7 @@ class Completed extends React.Component {
                 <Checkbox
                     label={todo.toDoText}
                     checked={todo.isComplete}
+                    onClick={() => this.unCheck(todo)}
                 />
             </ListItem>
         );
@@ -57,6 +58,11 @@ class Completed extends React.Component {
 
     delete(todo) {
         TodosStore.remove(todo);
+    }
+
+    unCheck(todo) {
+        todo.isComplete = false;
+        TodosStore.update(todo);
     }
 
     render() {
