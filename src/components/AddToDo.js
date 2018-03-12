@@ -7,15 +7,14 @@ const RETURN_KEY_CODE = 13;
 
 class AddToDo extends React.Component {
 
-    onKeyDown(event) {
+    handleOnKeyDown(event) {
         if (event.keyCode === RETURN_KEY_CODE) {
-            let text = event.target.value.trim();
-            if (text == '') {
+            let todoVal = event.target.value.trim();
+            if (todoVal == '') {
                 return;
             }
-            TodosStore.add(event.target.value.trim());
+            TodosStore.add(todoVal);
             
-            // clear input
             event.target.value = '';
         }
     }
@@ -23,7 +22,7 @@ class AddToDo extends React.Component {
     render() {
         return (
             <TextField 
-                onKeyDown={this.onKeyDown} 
+                onKeyDown={this.handleOnKeyDown} 
                 floatingLabelText="Enter ToDo"
             />
         );

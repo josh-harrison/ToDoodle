@@ -52,8 +52,10 @@ class Todos extends React.Component {
     }
 
     markCompleted(todo) {
-        todo.isComplete = true;
-        TodosStore.update(todo);
+        setTimeout(() => {
+            todo.isComplete = true;
+            TodosStore.update(todo);
+        }, 500);
     }
 
     render() {

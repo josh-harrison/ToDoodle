@@ -1,22 +1,3 @@
 {
-    "todos": [
-        {
-            "toDoText": "Stop",
-            "timestamp": "3/12/2018",
-            "id": 15,
-            "isComplete": false
-        },
-        {
-            "toDoText": "Drop",
-            "timestamp": "3/12/2018",
-            "id": 16,
-            "isComplete": false
-        },
-        {
-            "toDoText": "Shut em down",
-            "timestamp": "3/12/2018",
-            "id": 17,
-            "isComplete": false
-        }
-    ]
+    "todos": []
 }

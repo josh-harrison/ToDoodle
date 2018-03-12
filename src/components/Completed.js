@@ -48,6 +48,7 @@ class Completed extends React.Component {
                 rightIconButton={<IconButton onClick={() => this.delete(todo)}><DeleteIcon /></IconButton>}
             >
                 <Checkbox
+                    id={`todo-${todo.id}`}
                     label={todo.toDoText}
                     checked={todo.isComplete}
                     onClick={() => this.unCheck(todo)}
@@ -61,8 +62,11 @@ class Completed extends React.Component {
     }
 
     unCheck(todo) {
-        todo.isComplete = false;
-        TodosStore.update(todo);
+        document.getElementById(`todo-${todo.id}`).checked = false;
+        setTimeout(() => {
+            todo.isComplete = false;
+            TodosStore.update(todo);
+        },500);
     }
 
     render() {
