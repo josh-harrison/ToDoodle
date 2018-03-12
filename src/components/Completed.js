@@ -45,7 +45,7 @@ class Completed extends React.Component {
         return(
             <ListItem 
                 key={todo.id}
-                rightIconButton={<IconButton><DeleteIcon /></IconButton>}
+                rightIconButton={<IconButton onClick={() => this.delete(todo)}><DeleteIcon /></IconButton>}
             >
                 <Checkbox
                     label={todo.toDoText}
@@ -53,6 +53,10 @@ class Completed extends React.Component {
                 />
             </ListItem>
         );
+    }
+
+    delete(todo) {
+        TodosStore.remove(todo);
     }
 
     render() {

@@ -42,13 +42,17 @@ app.get('/todos', function(req, res, next) {
   });
 });
 
-app.get('/test', function(req, res, next) {
-  res.send('hi');
-});
-
 app.post('/todos', function(req, res, next) {
   let todo = req.body;
   db.add(todo, function(todos) {
+    res.send(todos);
+    next();
+  });
+});
+
+app.post('/todos/update', function(req, res, next) {
+  let todo = req.body;
+  db.update(todo, function(todos) {
     res.send(todos);
     next();
   });

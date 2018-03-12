@@ -1,45 +1,15 @@
 {
     "todos": [
         {
-            "toDoText": "Wash my hair",
+            "toDoText": "Stop",
             "timestamp": "3/11/2018",
-            "id": 11,
+            "id": 21,
             "isComplete": false
         },
         {
-            "toDoText": "Do the dishes",
+            "toDoText": "drop",
             "timestamp": "3/11/2018",
-            "id": 12,
-            "isComplete": false
-        },
-        {
-            "toDoText": "Walk the dog",
-            "timestamp": "3/11/2018",
-            "id": 13,
-            "isComplete": false
-        },
-        {
-            "toDoText": "Bring it",
-            "timestamp": "3/11/2018",
-            "id": 14,
-            "isComplete": true
-        },
-        {
-            "toDoText": "Sell soul for fame and fortune",
-            "timestamp": "3/11/2018",
-            "id": 15,
-            "isComplete": false
-        },
-        {
-            "toDoText": "Buy soul back from devil with daring exploit",
-            "timestamp": "3/11/2018",
-            "id": 16,
-            "isComplete": false
-        },
-        {
-            "toDoText": "Go on vacation",
-            "timestamp": "3/11/2018",
-            "id": 17,
+            "id": 22,
             "isComplete": false
         }
     ]

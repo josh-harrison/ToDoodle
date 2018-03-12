@@ -33,9 +33,21 @@ function del(id, resolve) {
     });
 }
 
+function update(todo, resolve) {
+    getAll(function (data) {
+        var todos = data.todos;
+        var updatedIndex = _.findIndex(todos, {id: todo.id});
+        todos.splice(updatedIndex, 1, todo);
+        data.todos = todos;
+        commit(data);
+        resolve(data);
+    });
+}
+
 module.exports = {
   getAll: getAll,
   commit: commit,
   add: add,
-  del: del
+  del: del,
+  update: update
 }

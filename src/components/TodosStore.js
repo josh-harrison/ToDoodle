@@ -45,6 +45,23 @@ function add(todo) {
   });
 }
 
+function update(todo) {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: `${URL}/update`,
+      crossDomain: true,
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      dataType: 'json',
+      success: resolve,
+      error: reject,
+      data: JSON.stringify(todo)
+    });
+  });
+}
+
 class TodosStore {
   
   constructor() {
@@ -78,6 +95,15 @@ class TodosStore {
       this.publish({
           actionType: 'remove',
           data: todo
+      });
+    });
+  }
+
+  update(todo) {
+    update(todo).then(() => {
+      this.publish({
+        actionType: 'update',
+        data: todo
       });
     });
   }

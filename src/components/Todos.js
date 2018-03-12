@@ -30,7 +30,7 @@ class Todos extends React.Component {
         });
         
         TodosStore.subscribe((action) => {
-          if(action.actionType != 'add') return;
+          if(action.actionType == 'remove' ) return;
           this.setState({
             todos: this.filter(action.todos)
           });
@@ -46,8 +46,14 @@ class Todos extends React.Component {
         <Checkbox 
             key={todo.id}
             label={todo.toDoText} 
-            style={styles.checkbox} />   
+            style={styles.checkbox}
+            onCheck={() => this.markCompleted(todo)} />   
         );
+    }
+
+    markCompleted(todo) {
+        todo.isComplete = true;
+        TodosStore.update(todo);
     }
 
     render() {
