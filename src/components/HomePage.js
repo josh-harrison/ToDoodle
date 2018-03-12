@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 import TextField from 'material-ui/TextField';
 import Todos from './Todos';
 import Completed from './Completed';
+import AddTodo from './AddToDo';
 
 
 class HomePage extends React.Component {
@@ -10,9 +11,7 @@ class HomePage extends React.Component {
         return(
             <div className="jumbotron">
                 <h1>ToDoodle</h1>
-                <TextField
-                    floatingLabelText="Enter ToDo"
-                />
+                <AddTodo />
                 <hr />
                 <Todos />
                 <hr />

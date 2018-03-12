@@ -3,6 +3,7 @@ import Checkbox from 'material-ui/Checkbox';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 import ToDoData from './ToDoData';
+import TodosStore from './TodosStore';
 
 const styles = {
     block: {
@@ -20,16 +21,17 @@ class Todos extends React.Component {
     }
 
     componentDidMount() {
-        this.tempBuild();
-    }
-
-    tempBuild() {
-        let t1 = new ToDoData("Stop", 1, false);
-        let t2 = new ToDoData("Drop", 2, false);
-        let t3 = new ToDoData("Shut em down, open up shop", 3, false);
-        let all = [t1,t2,t3];
-        this.setState({
-            todos : all
+        TodosStore.getAll().then((data) => {
+          console.log('get all', data);
+          this.setState({
+            todos: data.todos
+          });
+        });
+        
+        TodosStore.subscribe((action) => {
+          this.setState({
+            todos: action.todos
+          });
         });
     }
 

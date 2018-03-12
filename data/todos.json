@@ -1,3 +1,22 @@
 {
-    "todos": []
+    "todos": [
+        {
+            "toDoText": "Wash my hair",
+            "timestamp": "3/11/2018",
+            "id": 11,
+            "isComplete": false
+        },
+        {
+            "toDoText": "Do the dishes",
+            "timestamp": "3/11/2018",
+            "id": 12,
+            "isComplete": false
+        },
+        {
+            "toDoText": "Walk the dog",
+            "timestamp": "3/11/2018",
+            "id": 13,
+            "isComplete": false
+        }
+    ]
 }

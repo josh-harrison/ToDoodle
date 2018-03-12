@@ -1,0 +1,33 @@
+import React from 'react';
+import TextField from 'material-ui/TextField';
+
+import TodosStore from './TodosStore';
+
+const RETURN_KEY_CODE = 13;
+
+class AddToDo extends React.Component {
+
+    onKeyDown(event) {
+        if (event.keyCode === RETURN_KEY_CODE) {
+            let text = event.target.value.trim();
+            if (text == '') {
+                return;
+            }
+            TodosStore.add(event.target.value.trim());
+            
+            // clear input
+            event.target.value = '';
+        }
+    }
+    
+    render() {
+        return (
+            <TextField 
+                onKeyDown={this.onKeyDown} 
+                floatingLabelText="Enter ToDo"
+            />
+        );
+    }
+}
+
+export default AddToDo;
