@@ -56,10 +56,9 @@ class Todos extends React.Component {
 
     create(todo) {
         return (
-        <div>
+        <div key={todo.id}>
             <span style={{fontWeight:'normal',fontStyle:'italic',fontSize:'10px'}}>{todo.timestamp}</span>
             <Checkbox 
-                key={todo.id}
                 label={todo.toDoText} 
                 style={styles.checkbox}
                 onCheck={() => this.markCompleted(todo)} /> 
