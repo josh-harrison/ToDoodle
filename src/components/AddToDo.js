@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 
-import TodosStore from './TodosStore';
+import Store from './Store';
 
 const RETURN_KEY_CODE = 13;
 
@@ -13,7 +13,7 @@ class AddToDo extends React.Component {
             if (todoVal == '') {
                 return;
             }
-            TodosStore.add(todoVal);
+            Store.add(todoVal);
             
             event.target.value = '';
         }
@@ -23,7 +23,7 @@ class AddToDo extends React.Component {
         return (
             <TextField 
                 onKeyDown={this.handleOnKeyDown} 
-                floatingLabelText="Enter ToDo"
+                floatingLabelText="Enter new task"
             />
         );
     }

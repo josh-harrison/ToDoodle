@@ -62,7 +62,7 @@ function update(todo) {
   });
 }
 
-class TodosStore {
+class Store {
   
   constructor() {
     this.getAll().then((data) => {
@@ -127,4 +127,4 @@ class TodosStore {
 }
 
 // export singleton
-export default new TodosStore();
+export default new Store();

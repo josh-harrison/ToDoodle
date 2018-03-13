@@ -4,9 +4,9 @@ import { Link, IndexLink } from 'react-router';
 const Header = () => {
     return (
         <nav>
-            <IndexLink to="/" activeClassName="active">ToDo</IndexLink>
+            <IndexLink to="/" activeClassName="active">To Do List</IndexLink>
             {" | "}
-            <Link to="/about" activeClassName="active">About</Link>
+            <Link to="/reference" activeClassName="active">Reference</Link>
         </nav>
     );
 };

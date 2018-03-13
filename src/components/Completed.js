@@ -5,15 +5,12 @@ import ListItem from 'material-ui/List/ListItem';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui/svg-icons/action/delete';
 import Model from './ToDoData';
-import TodosStore from './TodosStore';
+import Store from './Store';
 import _ from 'lodash';
 
 const styles = {
     block: {
-        maxWidth: 250
-    },
-    checkbox: {
-        marginBottom: 16
+        maxWidth: 400
     }
 };
 
@@ -23,28 +20,37 @@ class Completed extends React.Component {
         this.state = { todos: [] };
     }
 
+    render() {
+        const todos = this.state.todos.map(this.create.bind(this));
+        return(
+        <div style={styles.block}>
+            <h2>Completed</h2>
+            <List>
+                {todos}
+            </List>
+        </div>
+        );
+    }
+
     componentDidMount() {
-        TodosStore.getAll().then((data) => {
+        Store.getAll().then((data) => {
           this.setState({
             todos: this.filter(data.todos)
           });
         });
         
-        TodosStore.subscribe((action) => {
+        Store.subscribe((action) => {
           this.setState({
             todos: this.filter(action.todos)
           });
         });
     }
 
-    filter(todos) {
-        return _.filter(todos, function(o) {return o.isComplete == true;});
-    }
-
     create(todo) {
         return(
             <ListItem 
                 key={todo.id}
+                style={{paddingLeft: '0px', fontSize: '14px'}}
                 rightIconButton={<IconButton onClick={() => this.delete(todo)}><DeleteIcon /></IconButton>}
             >
                 <Checkbox
@@ -57,28 +63,19 @@ class Completed extends React.Component {
         );
     }
 
+    filter(todos) {
+        return _.filter(todos, function(o) {return o.isComplete == true;});
+    }
+
     delete(todo) {
-        TodosStore.remove(todo);
+        Store.remove(todo);
     }
 
     unCheck(todo) {
-        document.getElementById(`todo-${todo.id}`).checked = false;
         setTimeout(() => {
             todo.isComplete = false;
-            TodosStore.update(todo);
+            Store.update(todo);
         },500);
-    }
-
-    render() {
-        const todos = this.state.todos.map(this.create.bind(this));
-        return(
-        <div style={styles.block}>
-            <h3>Completed</h3>
-            <List>
-                {todos}
-            </List>
-        </div>
-        );
     }
 }
 

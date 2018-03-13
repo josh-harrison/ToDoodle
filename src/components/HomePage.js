@@ -1,10 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router';
 import TextField from 'material-ui/TextField';
-import Todos from './Todos';
-import Completed from './Completed';
 import AddTodo from './AddToDo';
-import TodosStore from './TodosStore';
+import Store from './Store';
+import AllTodos from './AllTodos';
 
 
 class HomePage extends React.Component {
@@ -15,12 +14,9 @@ class HomePage extends React.Component {
 
     render() {
         return(
-            <div className="jumbotron">
+            <div className="jumbotron" id="jumbo">
                 <AddTodo />
-                <hr />
-                <Todos />
-                <hr />
-                <Completed />
+                {this.state.workFlowVisible ? <AllTodos /> : null}
             </div>
         );
     }
@@ -28,14 +24,14 @@ class HomePage extends React.Component {
     componentDidMount() {
         this.getTodos();
         
-        TodosStore.subscribe((action) => {
+        Store.subscribe((action) => {
           if(action.actionType == 'update' ) return;
           this.getTodos();
         });
     }
 
     getTodos() {
-        TodosStore.getAll().then((data) => {
+        Store.getAll().then((data) => {
             if(data.todos.length > 0) {
                 this.setState({
                     workFlowVisible: true

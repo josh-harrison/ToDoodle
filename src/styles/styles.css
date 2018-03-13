@@ -1,16 +1,33 @@
 /* Styles */
 #app {
-    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #4d4d4d;
-    min-width: 550px;
-    max-width: 850px;
-    margin: 0 auto;
-  }
+  font: 100% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #4d4d4d;
+  min-width: 550px;
+  max-width: 850px;
+  margin: 0 auto;
+}
   
-  a.active {
-    color: orange;
-  }
-  
-  nav {
-    padding-top: 20px;
-  }
+a.active {
+  color: orange;
+}
+
+nav {
+  padding-top: 20px;
+}
+
+body {
+  font-size: 62.5%;
+}
+
+#app h1 {
+  font-size: 1.8em;
+}
+
+#app h2 {
+  font-size: 1.4em;
+}
+
+#jumbo {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
