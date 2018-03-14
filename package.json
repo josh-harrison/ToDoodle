@@ -1,7 +1,7 @@
 {
   "name": "to-do-josh",
   "version": "1.0.0",
-  "description": "ToDo list demo for Spreetail",
+  "description": "ToDo list app for demo",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
